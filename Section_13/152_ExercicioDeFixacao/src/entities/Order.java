@@ -59,7 +59,22 @@ public class Order {
 		items.remove(item);
 	}
 	
-	public double total() {
-		return 1;
+	public String total() {
+		double sum = 0.0;
+		for (OrderItem c: items) {
+			sum += c.subTotal();
+		}
+		return String.format("%.2f" , sum);
+	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+			for (OrderItem c: items) {
+				sb.append(c.getProduct().getName() + ", ");
+				sb.append("$" + String.format("%.2f", c.getProduct().getPrice()) + ", ");
+				sb.append("Quantity: " + c.getQuantity() + ", ");
+				sb.append("Subtotal: " + "$" +  String.format("%.2f", c.subTotal()) + "\n");
+			}
+		return sb.toString();
 	}
 }
