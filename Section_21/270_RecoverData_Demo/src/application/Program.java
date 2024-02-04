@@ -13,7 +13,7 @@ public class Program {
 		
 		Connection conn = null;
 		Statement st = null;
-		ResultSet rs = null;
+		ResultSet rs = null; 
 		try {
 			conn = DB.getConnection();
 			
